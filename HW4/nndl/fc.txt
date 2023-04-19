@@ -1,0 +1,26 @@
+Running check with reg =  0
+Initial loss:  2.2822683140110183
+W1 relative error: 0.0028804635696836607
+W2 relative error: 9.021185747398696e-06
+W3 relative error: 4.5744894962236505e-10
+b1 relative error: 3.3306690738754696e-08
+b2 relative error: 1.6653345369377348e-07
+b3 relative error: 1.3184095371810073e-10
+beta1 relative error: 7.445746849185102e-09
+beta2 relative error: 1.2897578575741869e-08
+gamma1 relative error: 1.542579158808758e-08
+gamma2 relative error: 8.886635987960342e-09
+
+
+Running check with reg =  3.14
+Initial loss:  7.239927697960789
+W1 relative error: 4.91344181136343e-06
+W2 relative error: 5.463465063585058e-06
+W3 relative error: 1.401276918549291e-08
+b1 relative error: 6.106226635438361e-08
+b2 relative error: 3.3306690738754696e-08
+b3 relative error: 2.5154304367311695e-10
+beta1 relative error: 1.4543184419173288e-08
+beta2 relative error: 5.279220350955512e-08
+gamma1 relative error: 7.591068861480042e-09
+gamma2 relative error: 1.9785173635328375e-08
