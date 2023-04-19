@@ -1,0 +1,11 @@
+lr 4.000000e-07 train accuracy: 0.411959 val accuracy: 0.414000
+best validation accuracy achieved during cross-validation: 0.414000
+The test error is : 0.614000
+
+lr 6.000000e-07 train accuracy: 0.418327 val accuracy: 0.415000
+best validation accuracy achieved during cross-validation: 0.415000
+The test error is : 0.612000
+
+lr 5.000000e-07 train accuracy: 0.415816 val accuracy: 0.418000
+best validation accuracy achieved during cross-validation: 0.418000
+The test error is : 0.614000

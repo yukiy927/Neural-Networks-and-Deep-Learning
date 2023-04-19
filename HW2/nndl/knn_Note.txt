@@ -1,0 +1,112 @@
+Training data shape:  (50000, 32, 32, 3)
+Training labels shape:  (50000,)
+Test data shape:  (10000, 32, 32, 3)
+Test labels shape:  (10000,)
+(5000, 3072) (500, 3072)
+Time to run code: 21.004671812057495
+Frobenius norm of L2 distances: 7906696.077040902
+
+
+D:\anaconda3\python.exe D:\file_yyux\UCLA\23W-courses\C247\hw2_Questions\code\nndl\Main.py 
+Training data shape:  (50000, 32, 32, 3)
+Training labels shape:  (50000,)
+Test data shape:  (10000, 32, 32, 3)
+Test labels shape:  (10000,)
+(5000, 3072) (500, 3072)
+Time to run code: 0.6615910530090332
+Difference in L2 distances between your KNN implementations (should be 0): 0.0
+
+
+
+  def predict_labels(self, dists, k=1):
+    """
+    Given a matrix of distances between test points and training points,
+    predict a label for each test point.
+
+    Inputs:
+    - dists: A numpy array of shape (num_test, num_train) where dists[i, j]
+      gives the distance betwen the ith test point and the jth training point.
+
+    Returns:
+    - y: A numpy array of shape (num_test,) containing predicted labels for the
+      test data, where y[i] is the predicted label for the test point X[i].  
+    """
+    num_test = dists.shape[0]
+    y_pred = np.zeros(num_test)
+    for i in np.arange(num_test):
+      # A list of length k storing the labels of the k nearest neighbors to
+      # the ith test point.
+      closest_y = []
+      # ================================================================ #
+      # YOUR CODE HERE:
+      #   Use the distances to calculate and then store the labels of 
+      #   the k-nearest neighbors to the ith test point.  The function
+      #   numpy.argsort may be useful.
+      #   
+      #   After doing this, find the most common label of the k-nearest
+      #   neighbors.  Store the predicted label of the ith training example
+      #   as y_pred[i].  Break ties by choosing the smaller label.
+      # ================================================================ #
+      sortedIdxs = []
+      sortedIdxs = np.argsort(dists[i])
+      #print('sortedIdxs = ', sortedIdxs)
+      closest_y = self.y_train[sortedIdxs[:k]]
+      #print('closet_y = ', closest_y)
+      y_pred[i] = np.argmax(np.bincount(closest_y))
+      #print('y_pred = ',y_pred)
+
+      pass
+
+      # ================================================================ #
+      # END YOUR CODE HERE
+      # ================================================================ #
+
+    return y_pred
+
+  def predict_labels(self, dists, k=1):
+    """
+    Given a matrix of distances between test points and training points,
+    predict a label for each test point.
+
+    Inputs:
+    - dists: A numpy array of shape (num_test, num_train) where dists[i, j]
+      gives the distance betwen the ith test point and the jth training point.
+
+    Returns:
+    - y: A numpy array of shape (num_test,) containing predicted labels for the
+      test data, where y[i] is the predicted label for the test point X[i].  
+    """
+    num_test = dists.shape[0]
+    y_pred = np.zeros(num_test)
+    for i in np.arange(num_test):
+      # A list of length k storing the labels of the k nearest neighbors to
+      # the ith test point.
+      closest_y = []
+      # ================================================================ #
+      # YOUR CODE HERE:
+      #   Use the distances to calculate and then store the labels of 
+      #   the k-nearest neighbors to the ith test point.  The function
+      #   numpy.argsort may be useful.
+      #   
+      #   After doing this, find the most common label of the k-nearest
+      #   neighbors.  Store the predicted label of the ith training example
+      #   as y_pred[i].  Break ties by choosing the smaller label.
+      # ================================================================ #
+      sortedIdxs = []
+      sortedIdxs = np.argsort(dists[i])
+      #print('sortedIdxs = ', sortedIdxs)
+      for j in range(k):
+        closest_y.append(self.y_train[sortedIdxs[j]])
+      #print('closet_y = ', closest_y)
+      def most_common(lst):
+        return max(set(lst), key=lst.count)
+      y_pred[i] = most_common(closest_y)
+      #print('y_pred = ',y_pred)
+
+      pass
+
+      # ================================================================ #
+      # END YOUR CODE HERE
+      # ================================================================ #
+
+    return y_pred
